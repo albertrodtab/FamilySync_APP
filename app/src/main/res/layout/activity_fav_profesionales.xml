@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.profesional.FavProfesionalesListView">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/design_default_color_primary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/menu_options_add"
+        app:navigationIcon="?attr/actionModeCloseDrawable"
+        app:title="Prof Favoritos"
+        app:titleCentered="false"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:titleTextColor="@color/design_default_color_on_primary" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fav_profesionales_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:longClickable="true"
+        android:scrollIndicators="right"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBar"
+        tools:layout_editor_absoluteX="-41dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

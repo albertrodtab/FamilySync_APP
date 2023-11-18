@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_centro_mayores"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+
+        tools:targetApi="31">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".view.centro.RegisterCentroView"
+            android:exported="false" />
+        <activity
+            android:name=".view.centro.CentrosListView"
+            android:exported="false" />
+        <activity
+            android:name=".view.profesional.ProfesionalesListView"
+            android:exported="false" />
+        <activity
+            android:name=".view.profesional.FavProfesionalesListView"
+            android:exported="false" />
+        <activity
+            android:name=".view.profesional.RegisterProfesionalView"
+            android:exported="false" />
+        <activity
+            android:name=".view.profesional.DetailsProfesionalView"
+            android:exported="false" />
+        <activity
+            android:name=".view.residente.ResidentesListView"
+            android:exported="false" />
+        <activity
+            android:name=".view.residente.RegisterResidenteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MapsActivityView"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivityView"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

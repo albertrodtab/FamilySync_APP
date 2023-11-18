@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/view_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@android:drawable/ic_menu_mapmode"
+        android:iconTint="@color/purple_700"
+        android:title="Mapa"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/registrar"
+        android:icon="@android:drawable/ic_menu_add"
+        android:iconTint="@color/purple_700"
+        android:iconTintMode="add"
+        android:title="Registrar"
+        app:showAsAction="always" />
+
+
+</menu>

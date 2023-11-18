@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/view_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="Ver Mapa"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/modify_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="🖋 MODIFICAR"></item>
+    <item
+        android:id="@+id/delete_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="💥 ELIMINAR"></item>
+    <item
+        android:id="@+id/registrar"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="registrar"
+        app:showAsAction="ifRoom" />
+</menu>
