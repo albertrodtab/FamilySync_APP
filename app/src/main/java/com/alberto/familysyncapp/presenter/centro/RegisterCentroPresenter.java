@@ -1,6 +1,8 @@
 package com.alberto.familysyncapp.presenter.centro;
 
 
+import android.content.Context;
+
 import com.alberto.familysyncapp.contract.centro.RegisterCentroContract;
 import com.alberto.familysyncapp.domain.Centro;
 
@@ -12,10 +14,12 @@ public class RegisterCentroPresenter implements RegisterCentroContract.Presenter
 
     private RegisterCentroModel model;
     private RegisterCentroView view;
+    private Context context; // Agrega esta línea
 
-    public RegisterCentroPresenter(RegisterCentroView view){
-        this.view = view;
-        this.model = new RegisterCentroModel();
+    public RegisterCentroPresenter(Context context){
+        this.context = context; // Asigna el contexto recibido
+        this.view = (RegisterCentroView) context;
+        this.model = new RegisterCentroModel(context);
     }
 
     @Override

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilNombre"
+            android:id="@+id/tilTitulo"
             style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:text="@string/tvApellidos" />-->
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilApellidos"
+            android:id="@+id/tilTitular"
             style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilDni"
+            android:id="@+id/tilCuerpo"
             style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
             android:padding="10dp"
             android:text="Fecha Nac." />-->
 
-        <com.google.android.material.textfield.TextInputLayout
+        <!--<com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilSexo"
             style="?attr/textInputFilledStyle"
             android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="text" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>-->
 
         <!--<TextView
             android:id="@+id/tvSexo"
@@ -128,16 +128,16 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <!--<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!--<Button
+            &lt;!&ndash;<Button
                     android:id="@+id/btMod"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/btModificar" />-->
+                    android:text="@string/btModificar" />&ndash;&gt;
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btMod"
@@ -150,11 +150,11 @@
                 app:cornerRadius="16dp"
                 app:iconGravity="textStart" />
 
-            <!--<Button
+            &lt;!&ndash;<Button
                     android:id="@+id/btDelete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/btDelete" />-->
+                    android:text="@string/btDelete" />&ndash;&gt;
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btDelete"
@@ -167,8 +167,8 @@
                 app:cornerRadius="16dp"
                 app:iconGravity="textStart" />
 
-            <!--                app:icon="@drawable/ic_modify"-->
-        </LinearLayout>
+            &lt;!&ndash;                app:icon="@drawable/ic_modify"&ndash;&gt;
+        </LinearLayout>-->
 
         <!--<LinearLayout
             android:layout_width="match_parent"

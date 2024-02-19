@@ -17,6 +17,7 @@
         android:iconTint="@color/purple_700"
         android:iconTintMode="add"
         android:title="Registrar"
+        android:visible="false"
         app:showAsAction="always" />
 
 

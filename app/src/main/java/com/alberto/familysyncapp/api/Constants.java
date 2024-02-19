@@ -5,7 +5,7 @@ public class Constants {
     public static String BASE_URL = "http://192.168.1.33:8080";
 
     //http://192.168.1.33:8080  casa
-    //http://192.168.1.104:8080  traballo
+    //http://192.168.1.107:8080  traballo
     //http://192.168.1.101:8080   casa SARA
     //Desplegada en koyeb http://gesresapi-albertrodtab.koyeb.app/
 

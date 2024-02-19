@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alberto.familysyncapp.R;
 import com.alberto.familysyncapp.contract.centro.DeleteCentroContract;
 import com.alberto.familysyncapp.presenter.centro.DeleteCentroPresenter;
+import com.alberto.familysyncapp.view.TokenManager;
 import com.alberto.familysyncapp.view.centro.RegisterCentroView;
 import com.alberto.familysyncapp.domain.Centro;
 import com.bumptech.glide.Glide;
@@ -76,6 +77,23 @@ public class CentroAdapter extends RecyclerView.Adapter<CentroAdapter.CentroHold
         boolean tieneWifi = centroList.get(position).getTieneWifi();
         String wifiStatus = tieneWifi ? "Tiene Wifi" : "No tiene Wifi";
         holder.centroWifi.setText(wifiStatus);
+
+        //Así decido que botones de edición muestro al usuario
+        // Obtén el rol del usuario
+        String rol = TokenManager.getRol(context);
+
+        // Encuentra los botones en tu layout
+        Button btDelete = holder.itemView.findViewById(R.id.btDelete);
+        Button btMod = holder.itemView.findViewById(R.id.btMod);
+
+        // Controla la visibilidad de los botones basado en el rol del usuario
+        if (rol.equals("admin")) {
+            btDelete.setVisibility(View.VISIBLE);
+            btMod.setVisibility(View.VISIBLE);
+        } else {
+            btDelete.setVisibility(View.GONE);
+            btMod.setVisibility(View.GONE);
+        }
 
 
         Centro centro = centroList.get(position);

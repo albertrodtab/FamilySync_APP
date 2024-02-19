@@ -2,4 +2,5 @@
 <resources>
     <string name="titMaps">Centros</string>
     <string name="centroNombreVacio">El centro debe tener un nombre</string>
+    <string name="btComunidad" >COMUNIDAD GESRES</string>
 </resources>
