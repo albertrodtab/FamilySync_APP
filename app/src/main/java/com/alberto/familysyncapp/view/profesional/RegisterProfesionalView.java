@@ -129,9 +129,9 @@ public class RegisterProfesionalView extends AppCompatActivity implements Regist
         tilDni = findViewById(R.id.tilDni);
         tilCategoria = findViewById(R.id.tilCategoria);
         tilFechaNacimiento = findViewById(R.id.tilFechaNacimiento);
-        etNombre = findViewById(R.id.etNombre);
-        etApellidos = findViewById(R.id.etApellidos);
-        etDni = findViewById(R.id.etDni);
+        etNombre = findViewById(R.id.etTitulo);
+        etApellidos = findViewById(R.id.etTitular);
+        etDni = findViewById(R.id.etCuerpo);
         etFechaNacimiento = findViewById(R.id.etFechaNacimiento);
         etCategoria = findViewById(R.id.etCategoria);
         imageView = findViewById(R.id.ivProfesionalReg);
@@ -370,12 +370,12 @@ public class RegisterProfesionalView extends AppCompatActivity implements Regist
     }
 
     public void showMessage(String message) {
-        Snackbar.make((findViewById(R.id.etNombre)), message,
+        Snackbar.make((findViewById(R.id.etTitulo)), message,
                 BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
     public void showError(String errorMessage) {
-        Snackbar.make((findViewById(R.id.etNombre)), errorMessage,
+        Snackbar.make((findViewById(R.id.etTitulo)), errorMessage,
                 BaseTransientBottomBar.LENGTH_LONG).show();
 
 

@@ -68,7 +68,7 @@
                 android:hint="@string/tvNombre">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etNombre"
+                    android:id="@+id/etTitulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

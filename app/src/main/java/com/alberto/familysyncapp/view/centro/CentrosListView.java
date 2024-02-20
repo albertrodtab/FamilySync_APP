@@ -17,6 +17,7 @@ import com.alberto.familysyncapp.contract.centro.CentrosListContract;
 import com.alberto.familysyncapp.domain.Centro;
 import com.alberto.familysyncapp.presenter.centro.CentrosListPresenter;
 import com.alberto.familysyncapp.view.MapsActivityView;
+import com.alberto.familysyncapp.view.TokenManager;
 import com.google.android.material.appbar.MaterialToolbar;
 
 
@@ -45,7 +46,9 @@ public class CentrosListView extends AppCompatActivity implements CentrosListCon
             public void onClick(View v) {
                 // Acción a realizar al hacer clic en el ícono de navegación
                 // Por ejemplo, cerrar la actividad o realizar alguna acción específica
-                onBackPressed(); // Ejemplo: retroceder a la actividad anterior
+                //onBackPressed(); // Ejemplo: retroceder a la actividad anterior
+                getOnBackPressedDispatcher().onBackPressed();
+
             }
         });
         initializeRecyclerView();
@@ -74,6 +77,26 @@ public class CentrosListView extends AppCompatActivity implements CentrosListCon
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_options, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+
+        // Obtén el rol del usuario
+        String rol = TokenManager.getRol(this);
+
+        // Encuentra el botón "Registrar" en tu menú
+        MenuItem registrarButton = menu.findItem(R.id.registrar);
+
+        // Controla la visibilidad del botón "Registrar" basado en el rol del usuario
+        if (rol.equals("admin")) {
+            registrarButton.setVisible(true);
+        } else {
+            registrarButton.setVisible(false);
+        }
+
         return true;
     }
 

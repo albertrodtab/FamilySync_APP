@@ -4,7 +4,7 @@
     <string name="btRegresar">Regresar</string>
     <string name="btResidentes">RESIDENTES</string>
     <string name="btProfesionales">PROFESIONALES</string>
-    <string name="tvUsuario">Usuario</string>
+    <string name="tvemail">Email</string>
     <string name="tvContraseña">Contraseña</string>
     <string name="btLogin">Entrar</string>
     <string name="btRegistrarse">Registrarse</string>
@@ -53,4 +53,5 @@
     <string name="titResidentes">Residentes</string>
     <string name="centroNombreVacio">El centro debe tener un nombre</string>
     <string name="profesionalNombreVacio">El nombre del profesional debe estar relleno</string>
+    <string name="btComunidad" >COMUNIDAD GESRES</string>
 </resources>

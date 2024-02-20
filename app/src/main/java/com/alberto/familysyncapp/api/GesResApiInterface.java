@@ -1,15 +1,19 @@
 package com.alberto.familysyncapp.api;
 
 import com.alberto.familysyncapp.domain.Centro;
+import com.alberto.familysyncapp.domain.Noticias;
 import com.alberto.familysyncapp.domain.Profesional;
 import com.alberto.familysyncapp.domain.Residente;
+import com.alberto.familysyncapp.domain.Usuario;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -26,7 +30,7 @@ public interface GesResApiInterface {
     Call<Centro> getCentro(@Path("id") long id);
 
     @POST("centros")
-    Call<Centro> addCentro(@Body Centro centro);
+    Call<Centro> addCentro(@Header("Authorization") String authorizationHeader, @Body Centro centro);
 
     @DELETE ("centro/{id}")
     Call<Void> removeCentro(@Path("id") long id);
@@ -51,6 +55,11 @@ public interface GesResApiInterface {
     @PUT("profesional/{id}")
     Call<Profesional> modifyProfesional(@Path("id") long id, @Body Profesional profesional);
 
+    //Noticias
+    @GET("noticias")
+    Call<List<Noticias>> getNoticias();
+
+
 
 
 
@@ -58,4 +67,12 @@ public interface GesResApiInterface {
     @GET("residentes")
     Call<List<Residente>> getResidentes();
 
+    //Usuario
+    @POST("login")
+    Call<ResponseBody> login (@Body Usuario usuario);
+
+    // Método adicional para obtener el token de las cabeceras
+    @GET("token")
+    Call<Void> obtenerToken(@Header("Authorization") String authorizationHeader);
 }
+

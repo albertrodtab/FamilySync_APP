@@ -1,8 +1,6 @@
 package com.alberto.familysyncapp.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,28 +9,26 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
 import com.alberto.familysyncapp.R;
-import com.alberto.familysyncapp.db.AppDatabase;
+import com.alberto.familysyncapp.domain.Noticias;
 import com.alberto.familysyncapp.domain.Residente;
-import com.alberto.familysyncapp.view.residente.RegisterResidenteActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
 
-public class ResidenteAdapter extends RecyclerView.Adapter<ResidenteAdapter.ResidenteHolder>{
+public class NoticiasAdapter extends RecyclerView.Adapter<NoticiasAdapter.NoticiasHolder>{
 
-    private List<Residente> residenteList;
+    private List<Noticias> noticiasList;
     //esto sirve para guardar la posición para luego poder hacer cosas con ellos.
     private Context context;
 
     private int selectedPosition;
 
-    public ResidenteAdapter(Context context, List<Residente> dataList) {
+    public NoticiasAdapter(Context context, List<Noticias> dataList) {
         this.context = context;
-        this.residenteList = dataList;
+        this.noticiasList = dataList;
 
         //esto indica que no hay ninguno seleccionado
         selectedPosition = -1;
@@ -40,80 +36,82 @@ public class ResidenteAdapter extends RecyclerView.Adapter<ResidenteAdapter.Resi
 
     //Patron Holder (ESTO
     // ESTOY OBLIGADO A HACERLO SIEMPRE)
-    //metodo que crea cada estructura de layout donde iran los datos de cada cnetro.
+    //metodo que crea cada estructura de layout donde iran los datos de cada noticia.
     @Override
-    public ResidenteHolder onCreateViewHolder(ViewGroup parent, int viewType){
+    public NoticiasHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.activity_view_residente, parent, false);
-        return new ResidenteHolder(view);
+                .inflate(R.layout.activity_view_noticia, parent, false);
+        return new NoticiasHolder(view);
     }
 
     //hace corresponder cada elemento de la lista para decir como pintarlo en cada elemento del layout
     @Override
-    public void onBindViewHolder(ResidenteHolder holder, int position){
-        holder.residenteNombre.getEditText().setText(residenteList.get(position).getNombre());
-        holder.residenteApellidos.getEditText().setText(residenteList.get(position).getApellidos());
-        holder.residenteDni.getEditText().setText(residenteList.get(position).getDni());
+    public void onBindViewHolder(NoticiasHolder holder, int position){
+        holder.tituloNoticia.getEditText().setText(noticiasList.get(position).getTituloNoticia());
+        holder.titular.getEditText().setText(noticiasList.get(position).getTitular());
+        holder.cuerpo.getEditText().setText(noticiasList.get(position).getCuerpoNoticia());
         //Date fechaNacimiento = profesionalList.get(position).getFechaNacimiento();
         //String fechaNacimientoString = "";
         //if (fechaNacimiento != null) {
         //    fechaNacimientoString = fechaNacimiento.toString(); // Convertir Date a String
         //}
         //holder.profesionalFechaNac.setText(fechaNacimientoString);
-        holder.residenteSexo.getEditText().setText(residenteList.get(position).getSexo());
+        //holder.residenteSexo.getEditText().setText(noticiasList.get(position).getSexo());
 
-        Residente residente = residenteList.get(position);
+        Noticias noticias = noticiasList.get(position);
 
         // Cargar y mostrar la foto en el ImageView
-        String photoUriString = residente.getPhotoUri();
+        String photoUriString = noticias.getPhotoUri();
         if (photoUriString != null) {
             Uri photoUri = Uri.parse(photoUriString);
             Glide.with(context)
                     .load(photoUri)
-                    .into(holder.residenteImagen);
+                    .into(holder.noticiaImagen);
         } else {
             // Mostrar una imagen de placeholder si no hay foto disponible
             Glide.with(context)
                     .load(R.drawable.icons8_city_buildings_100)
-                    .into(holder.residenteImagen);
+                    .into(holder.noticiaImagen);
         }
     }
 
     @Override
     public int getItemCount() {
-        return residenteList.size();
+        return noticiasList.size();
     }
 
-    public class ResidenteHolder extends RecyclerView.ViewHolder{
-        public TextInputLayout residenteNombre;
-        public TextInputLayout residenteApellidos;
-        public TextInputLayout residenteDni;
-        public TextInputLayout residenteSexo;
+
+    public class NoticiasHolder extends RecyclerView.ViewHolder{
+        public TextInputLayout tituloNoticia;
+        public TextInputLayout titular;
+        public TextInputLayout cuerpo;
+
+        //public TextInputLayout residenteSexo;
         //public TextView profesionalFechaNac;
-        public ImageView residenteImagen;
+        public ImageView noticiaImagen;
 
         //public CheckBox taskDone;
         //public Button doTaskButton;
         //public Button seeDetailsButton;
-        public Button btDelete;
+        //public Button btDelete;
         public View parentView;
-        public Button btMod;
+        //public Button btMod;
 
-        public ResidenteHolder(View view) {
+        public NoticiasHolder(View view) {
             super(view);
             parentView = view;
 
-            residenteNombre = view.findViewById(R.id.tilNombre);
-            residenteApellidos = view.findViewById(R.id.tilApellidos);
-            residenteDni = view.findViewById(R.id.tilDni);
+            tituloNoticia = view.findViewById(R.id.tilTitulo);
+            titular = view.findViewById(R.id.tilTitular);
+            cuerpo = view.findViewById(R.id.tilCuerpo);
             //profesionalFechaNac = view.findViewById(R.id.tvProfesionalFechaNac);
-            residenteSexo = view.findViewById(R.id.tilSexo);
-            residenteImagen = view.findViewById(R.id.ivNoticia);
+            //residenteSexo = view.findViewById(R.id.tilSexo);
+            noticiaImagen = view.findViewById(R.id.ivNoticia);
 
 
-            btDelete = view.findViewById(R.id.btDelete);
+            //btDelete = view.findViewById(R.id.btDelete);
 
-            btMod = view.findViewById(R.id.btMod);
+            //btMod = view.findViewById(R.id.btMod);
 
 //            doTaskButton = view.findViewById(R.id.do_task_button);
 
@@ -127,9 +125,9 @@ public class ResidenteAdapter extends RecyclerView.Adapter<ResidenteAdapter.Resi
             //seeDetailsButton.setOnClickListener(v -> seeDetails(getAdapterPosition()));
 
             //click on button (remove task from de list).
-            btDelete.setOnClickListener(v -> deleteResidente(getAdapterPosition()));
+            //btDelete.setOnClickListener(v -> deleteResidente(getAdapterPosition()));
 
-            btMod.setOnClickListener(v-> modifyResidente(getAdapterPosition()));
+            //btMod.setOnClickListener(v-> modifyResidente(getAdapterPosition()));
         }
 
 /*        private void doTask(int position){
@@ -154,7 +152,7 @@ public class ResidenteAdapter extends RecyclerView.Adapter<ResidenteAdapter.Resi
 
         }*/
 
-        private void deleteResidente(int position){
+    /*    private void deleteResidente(int position){
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage(R.string.estasSeguroDeBorrarElResidente)
                     .setTitle(R.string.ConfirmarBorrado)
@@ -170,9 +168,9 @@ public class ResidenteAdapter extends RecyclerView.Adapter<ResidenteAdapter.Resi
                     .setNegativeButton(R.string.no, (dialog, id) -> dialog.dismiss());
             AlertDialog dialog = builder.create();
             dialog.show();
-        }
+        }*/
 
-        private void modifyResidente(int position) {
+       /* private void modifyResidente(int position) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setMessage(R.string.deseasModificarElResidente)
                     .setTitle(R.string.confirmarModificación)
@@ -194,7 +192,7 @@ public class ResidenteAdapter extends RecyclerView.Adapter<ResidenteAdapter.Resi
 
             AlertDialog dialog = builder.create();
             dialog.show();
-        }
+        }*/
 
     }
 }

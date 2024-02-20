@@ -108,9 +108,9 @@ public class RegisterResidenteActivity extends AppCompatActivity {
         tilApellidos = findViewById(R.id.tilApellidos);
         tilDni = findViewById(R.id.tilDni);
         tilSexo = findViewById(R.id.tilSexo);
-        etNombre = findViewById(R.id.etNombre);
-        etApellidos = findViewById(R.id.etApellidos);
-        etDni = findViewById(R.id.etDni);
+        etNombre = findViewById(R.id.etTitulo);
+        etApellidos = findViewById(R.id.etTitular);
+        etDni = findViewById(R.id.etCuerpo);
         //etFechaNac = findViewById(R.id.etFechaNac);
         etSexo = findViewById(R.id.etSexo);
         imageView = findViewById(R.id.ivResidenteReg);

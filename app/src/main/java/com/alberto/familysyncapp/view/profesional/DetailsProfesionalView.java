@@ -114,9 +114,9 @@ public class DetailsProfesionalView extends AppCompatActivity implements Details
         tilApellidos = findViewById(R.id.tilApellidos);
         tilDni = findViewById(R.id.tilDni);
         tilCategoria = findViewById(R.id.tilCategoria);
-        etNombre = findViewById(R.id.etNombre);
-        etApellidos = findViewById(R.id.etApellidos);
-        etDni = findViewById(R.id.etDni);
+        etNombre = findViewById(R.id.etTitulo);
+        etApellidos = findViewById(R.id.etTitular);
+        etDni = findViewById(R.id.etCuerpo);
         //etFechaNac = findViewById(R.id.etFechaNac);
         etCategoria = findViewById(R.id.etCategoria);
         imageView = findViewById(R.id.ivProfesionalReg);
@@ -220,7 +220,7 @@ public class DetailsProfesionalView extends AppCompatActivity implements Details
     }
 
     public void showError(String errorMessage) {
-        Snackbar.make((findViewById(R.id.etNombre)), errorMessage,
+        Snackbar.make((findViewById(R.id.etTitulo)), errorMessage,
                 BaseTransientBottomBar.LENGTH_LONG).show();
 
 

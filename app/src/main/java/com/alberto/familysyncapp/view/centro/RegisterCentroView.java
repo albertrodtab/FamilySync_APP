@@ -121,7 +121,8 @@ public class RegisterCentroView extends AppCompatActivity implements RegisterCen
             public void onClick(View v) {
                 // Acción a realizar al hacer clic en el ícono de navegación
                 // Por ejemplo, cerrar la actividad o realizar alguna acción específica
-                onBackPressed(); // Ejemplo: retroceder a la actividad anterior
+                //onBackPressed(); // Ejemplo: retroceder a la actividad anterior
+                getOnBackPressedDispatcher().onBackPressed();
             }
         });
         //comprobar permisos para usar la cámara
@@ -177,7 +178,7 @@ public class RegisterCentroView extends AppCompatActivity implements RegisterCen
         tilNumRegistro = findViewById(R.id.tilNumRegistro);
         tilTelefono = findViewById(R.id.tilTelefono);
         tilEmail = findViewById(R.id.tilEmail);
-        etNombre = findViewById(R.id.etNombre);
+        etNombre = findViewById(R.id.etTitulo);
         etDireccion = findViewById(R.id.etDireccion);
         etNumRegistro = findViewById(R.id.etNumRegistro);
         etTelefono = findViewById(R.id.etTelefono);
@@ -508,13 +509,13 @@ public class RegisterCentroView extends AppCompatActivity implements RegisterCen
 
     @Override
     public void showError (String errorMessage) {
-        Snackbar.make((findViewById(R.id.etNombre)), errorMessage,
+        Snackbar.make((findViewById(R.id.etTitulo)), errorMessage,
                 BaseTransientBottomBar.LENGTH_LONG).show();
     }
 
     @Override
     public void showMessage(String message) {
-        Snackbar.make((findViewById(R.id.etNombre)), message,
+        Snackbar.make((findViewById(R.id.etTitulo)), message,
                 BaseTransientBottomBar.LENGTH_LONG).show();
     }
 

@@ -1,4 +1,4 @@
-package com.alberto.familysyncapp.view.residente;
+package com.alberto.familysyncapp.view.comunidad;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,28 +12,30 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alberto.familysyncapp.R;
-import com.alberto.familysyncapp.adapter.ResidenteAdapter;
-import com.alberto.familysyncapp.contract.residente.ResidentesListContract;
-import com.alberto.familysyncapp.domain.Residente;
-import com.alberto.familysyncapp.presenter.residente.ResidentesListPresenter;
+import com.alberto.familysyncapp.adapter.NoticiasAdapter;
+import com.alberto.familysyncapp.contract.comunicadad.NoticiasListContract;
+import com.alberto.familysyncapp.domain.Noticias;
+import com.alberto.familysyncapp.presenter.comunidad.NoticiasListPresenter;
+import com.alberto.familysyncapp.view.residente.RegisterResidenteActivity;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResidentesListView extends AppCompatActivity implements ResidentesListContract.view {
+public class NoticiasListView extends AppCompatActivity implements NoticiasListContract.view {
 
-    public static List<Residente> residentesList = new ArrayList<>();
-    private ResidenteAdapter adapter;
+    public static List<Noticias> noticiasList = new ArrayList<>();
+    private NoticiasAdapter adapter;
 
-    private ResidentesListPresenter presenter;
+    private NoticiasListPresenter presenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_residentes);
+        setContentView(R.layout.activity_noticias);
 
-        presenter = new ResidentesListPresenter(this);
+        presenter = new NoticiasListPresenter(this);
 
         MaterialToolbar topAppBar = findViewById(R.id.topAppBar);
         setSupportActionBar(topAppBar);
@@ -50,7 +52,7 @@ public class ResidentesListView extends AppCompatActivity implements ResidentesL
     }
 
     private void initializeRecyclerView(){
-        residentesList = new ArrayList<>();
+        noticiasList = new ArrayList<>();
 
         RecyclerView recyclerView = findViewById(R.id.noticias_list);
         //esto le dice que tenga un tamaño fijo y que ocupe el máximo espacio asignado
@@ -60,17 +62,17 @@ public class ResidentesListView extends AppCompatActivity implements ResidentesL
         //así se ciñe al Layout manager
         recyclerView.setLayoutManager(layoutManager);
         //hago mi adapter propio no utilizo el arrayadapter de android
-        adapter = new ResidenteAdapter(this, residentesList);
+        adapter = new NoticiasAdapter(this, noticiasList);
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.loadAllResidentes();
+        presenter.loadAllNoticias();
     }
 
-    @Override
+/*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_options_add, menu);
         return true;
@@ -85,16 +87,16 @@ public class ResidentesListView extends AppCompatActivity implements ResidentesL
             return true;
         }
         return false;
-    }
+    }*/
 
     public void cancel(View view) {
         onBackPressed();
     }
 
     @Override
-    public void showResidentes(List<Residente> residentes) {
-        residentesList.clear();
-        residentesList.addAll(residentes);
+    public void showNoticias(List<Noticias> noticias) {
+        noticiasList.clear();
+        noticiasList.addAll(noticias);
         // con esto la lista siempre estára actualizada cuando vuelva de un segundo plano.
         adapter.notifyDataSetChanged();
     }
